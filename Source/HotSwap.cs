@@ -130,8 +130,6 @@ namespace HotSwap
                         if (systemType.IsGenericTypeDefinition)
                             continue;
 
-                        var anyUpdates = false;
-
                         foreach (var method in systemType.GetMethods(allDeclared)
                                      .Concat(systemType.GetConstructors(allDeclared).Cast<MethodBase>()))
                         {
@@ -200,10 +198,10 @@ namespace HotSwap
             var unpatchedTypes = new HashSet<(string, Type)>();
 
             foreach (var (original, patch) in from m in Harmony.GetAllPatchedMethods()
-                     let info = Harmony.GetPatchInfo(m)
-                     from p in info.Prefixes.Concat(info.Postfixes)
-                         .Concat(info.Transpilers).Concat(info.Finalizers)
-                     select (m, p))
+                                              let info = Harmony.GetPatchInfo(m)
+                                              from p in info.Prefixes.Concat(info.Postfixes)
+                                                  .Concat(info.Transpilers).Concat(info.Finalizers)
+                                              select (m, p))
             {
                 if (updatedTypes.Contains(patch.PatchMethod.DeclaringType) && patch.PatchMethod.DeclaringType.HasAttribute<HarmonyPatch>())
                 {

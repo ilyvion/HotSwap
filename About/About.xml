@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <packageId>zetrith.hotswap</packageId>
+  <packageId>ilyvion.hotswap</packageId>
   <name>HotSwap</name>
   <supportedVersions>
     <li>1.4</li>
     <li>1.5</li>
   </supportedVersions>
-  <author>Zetrith</author>
-  <url>https://github.com/Zetrith/HotSwap</url>
+  <author>ilyvion, Zetrith</author>
+  <url>https://github.com/ilyvion-contrib/HotSwap</url>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>

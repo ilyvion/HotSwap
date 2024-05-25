@@ -84,7 +84,8 @@ namespace HotSwap
                         if (m.Name != method.Name) continue;
                         if (GetParams(m).Length != method.GetParamCount()) continue;
                         if (GetParams(m).Length > 0 &&
-                            GetParams(m)[0].ParameterType != TranslateRef(method.GetParam(0))) continue;
+                            TranslateRef(method.GetParam(0)) is Type paramType &&
+                            GetParams(m)[0].ParameterType != paramType) continue;
 
                         if (ret == null)
                             ret = m;
